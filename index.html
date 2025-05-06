@@ -3,102 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salvador Ferman Sanchez - Portfolio</title>
+    <title>Salvador Ferman Sanchez - Cybersecurity Specialist</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">SF</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <section id="hero" class="section">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text reveal-left">
-                        <h1 class="gradient-text">Hello, Salvador Ferman Sanchez</h1>
-                        <p class="subtitle">Software Developer | Web Designer | Tech Enthusiast</p>
-                        <p class="description">Creating innovative digital solutions with a passion for clean code and user-centered design.</p>
-                        <div class="cta-buttons">
-                            <a href="projects.html" class="btn primary-btn">Explore My Work</a>
-                            <a href="contact.html" class="btn secondary-btn">Connect With Me</a>
-                        </div>
-                        <div class="social-links-hero">
-                            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="hero-image reveal-right">
-                        <div class="image-container">
-                            <img src="./images/profile.jpg" alt="Salvador Ferman Sanchez">
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Salvador Ferman <span class="hero-highlight">Sanchez</span></h1>
+                <p class="hero-subtitle">I'm a <span class="typing-text">Cybersecurity Specialist</span></p>
+                <p class="hero-description">
+                    Passionate about protecting digital assets and securing networks. 
+                    Currently studying Computer Technology with a focus on cybersecurity.
+                </p>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn">View My Work</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <div class="chat-bot-toggle">
-        <button id="chatbot-button" aria-label="Open chat">
-            <i class="fas fa-comment-dots"></i>
-        </button>
-    </div>
-
-    <div class="qr-code-container">
-        <button id="qr-code-button" aria-label="Show QR Code">
-            <i class="fas fa-qrcode"></i>
-        </button>
-        <div id="qr-code-popup" class="hidden">
-            <img src="./images/portfolio-qr.png" alt="Portfolio QR Code">
-            <p>Scan to visit my portfolio</p>
         </div>
-    </div>
+        <div class="hero-scroll-indicator">
+            <a href="#featured-section">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
 
+    <!-- Featured Section -->
+    <section id="featured-section" class="section">
+        <div class="container">
+            <h2 class="section-heading">FEATURED</h2>
+            <p class="section-subtitle">Highlights of my cybersecurity journey</p>
+            
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Network Security</h3>
+                    <p>Specialized in securing network infrastructure and preventing unauthorized access.</p>
+                    <a href="skills.html" class="featured-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Security Tools</h3>
+                    <p>Proficient with industry-standard security tools for vulnerability assessment and monitoring.</p>
+                    <a href="skills.html" class="featured-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="featured-card">
+                    <div class="featured-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Security Projects</h3>
+                    <p>Hands-on experience with real-world cybersecurity projects and implementations.</p>
+                    <a href="projects.html" class="featured-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section id="about-preview" class="section">
+        <div class="container">
+            <div class="about-preview-content">
+                <div class="about-preview-text">
+                    <h2>About Me</h2>
+                    <p>
+                        I'm Salvador, a dedicated cybersecurity enthusiast currently pursuing my education in Computer Technology. 
+                        My passion lies in network security, vulnerability assessment, and creating secure digital environments.
+                    </p>
+                    <p>
+                        With a strong foundation in IT fundamentals and specialized knowledge in cybersecurity, 
+                        I'm constantly expanding my skills through hands-on projects and continuous learning.
+                    </p>
+                    <a href="about.html" class="btn">Learn More About Me</a>
+                </div>
+                <div class="about-preview-image">
+                    <img src="images/profile-image.jpg" alt="Salvador Ferman Sanchez">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="cta" class="section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Interested in working together?</h2>
+                <p>Let's discuss how I can contribute to your cybersecurity needs</p>
+                <a href="contact.html" class="btn btn-large">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+    
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <span>Salvador Ferman Sanchez</span>
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="contact.html">Contact</a>
-                </div>
                 <div class="social-links">
-                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/salvador1413" target="_blank"><i class="fab fa-github"></i></a>
+                    <div class="coming-soon-badge">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="tooltip">Coming Soon</span>
+                    </div>
                 </div>
-                <p class="copyright">&copy; 2024 Salvador Ferman Sanchez. All rights reserved.</p>
+                <p>&copy; 2024 Salvador Ferman Sanchez. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
+    
     <script src="script.js"></script>
-    <script src="chatbot.js"></script>
 </body>
 </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvador Ferman Sanchez - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">SF</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text reveal-left">
+                        <h1 class="gradient-text">Hello, Salvador Ferman Sanchez</h1>
+                        <p class="subtitle">Software Developer | Web Designer | Tech Enthusiast</p>
+                        <p class="description">Creating innovative digital solutions with a passion for clean code and user-centered design.</p>
+                        <div class="cta-buttons">
+                            <a href="projects.html" class="btn primary-btn">Explore My Work</a>
+                            <a href="contact.html" class="btn secondary-btn">Connect With Me</a>
+                        </div>
+                        <div class="social-links-hero">
+                            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="hero-image reveal-right">
+                        <div class="image-container">
+                            <img src="./images/profile.jpg" alt="Salvador Ferman Sanchez">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="chat-bot-toggle">
+        <button id="chatbot-button" aria-label="Open chat">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <div class="qr-code-container">
+        <button id="qr-code-button" aria-label="Show QR Code">
+            <i class="fas fa-qrcode"></i>
+        </button>
+        <div id="qr-code-popup" class="hidden">
+            <img src="./images/portfolio-qr.png" alt="Portfolio QR Code">
+            <p>Scan to visit my portfolio</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>Salvador Ferman Sanchez</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="copyright">&copy; 2024 Salvador Ferman Sanchez. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>

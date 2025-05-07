@@ -336,3 +336,73 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeText, 1000);
     }
 });
+// Preserve video playback position between pages
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a stored video time
+    const storedTime = sessionStorage.getItem('videoTime');
+    
+    if (storedTime) {
+        const video = document.getElementById('global-background-video');
+        video.currentTime = parseFloat(storedTime);
+    }
+    
+    // Store video time before leaving page
+    window.addEventListener('beforeunload', function() {
+        const video = document.getElementById('global-background-video');
+        sessionStorage.setItem('videoTime', video.currentTime);
+    });
+});
+// Disable video on mobile devices to improve performance
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+        const video = document.getElementById('global-background-video');
+        if (video) {
+            video.pause();
+            video.removeAttribute('autoplay');
+        }
+    }
+});
+// Side Navigation Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const hamburgerContainer = document.querySelector('.hamburger-container');
+    const navbar = document.querySelector('.navbar');
+    
+    // Toggle menu when clicking hamburger
+    hamburgerContainer.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navbar.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!navbar.contains(event.target) && !hamburgerContainer.contains(event.target)) {
+            hamburger.classList.remove('active');
+            navbar.classList.remove('active');
+        }
+    });
+    
+    // Close menu when clicking a link (for mobile)
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+            }
+        });
+    });
+    
+    // Set active link based on current page
+    const currentPage = window.location.pathname.split('/').pop();
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        } else if (currentPage === '' && linkPage === 'index.html') {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});

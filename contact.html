@@ -94,19 +94,20 @@
                     </div>
                     
                     <!-- QR Code Generator -->
-                    <div class="qr-code-section">
-                        <h3>Scan My Contact Info</h3>
-                        <p>Scan this QR code to save my contact information</p>
-                        <div class="qr-code-container">
-                            <div id="qrcode"></div>
+                        <div class="qr-code-section">
+                            <h3>Scan My Contact Info</h3>
+                            <p>Scan this QR code to save my contact information</p>
+                            <div class="qr-code-container">
+                                <div id="qrcode"></div>
+                            </div>
+                             <div class="qr-code-options">
+                                <button id="contactQR" class="qr-btn active">Contact Info</button>
+                                <button id="portfolioQR" class="qr-btn">Portfolio</button>
+                                <button id="resumeQR" class="qr-btn">Resume</button>
+                             </div>
+                            <p class="qr-description" id="qrDescription">Scan to save my contact information to your phone</p>
                         </div>
-                        <div class="qr-code-options">
-                            <button id="contactQR" class="qr-btn active">Contact Info</button>
-                            <button id="portfolioQR" class="qr-btn">Portfolio</button>
-                            <button id="githubQR" class="qr-btn">Resume</button>
-                        </div>
-                    </div>
-                </div>
+
                 
                 <!-- Contact Form Card -->
                 <div class="contact-form-card">
@@ -210,35 +211,57 @@ NOTE:Cybersecurity professional specializing in network security and threat dete
 END:VCARD`;
         
         // Portfolio URL - Use absolute URL to ensure it works when scanned
-        const portfolioUrl = 'https://salvador1413.github.io/SalvadorFermanSanche/contact.html';
+        const portfolioUrl = 'https://salvador1413.github.io';
         
-        // Resume URL - Update this with the actual path to your resume
+        // Resume URL - Direct link to your resume page or PDF
         const resumeUrl = 'https://salvador1413.github.io/resume.html';
         
-        // QR description element
-        const qrDescription = document.getElementById('qrDescription');
+        // Add QR description element if it doesn't exist
+        let qrDescription = document.getElementById('qrDescription');
+        if (!qrDescription) {
+            qrDescription = document.createElement('p');
+            qrDescription.id = 'qrDescription';
+            qrDescription.className = 'qr-description';
+            qrDescription.textContent = 'Scan to save my contact information to your phone';
+            
+            // Add it after the QR code options
+            const qrCodeOptions = document.querySelector('.qr-code-options');
+            if (qrCodeOptions) {
+                qrCodeOptions.parentNode.insertBefore(qrDescription, qrCodeOptions.nextSibling);
+            }
+        }
         
         // Generate contact QR code by default
         generateQRCode(contactInfo);
         
         // QR code option buttons
-        document.getElementById('contactQR').addEventListener('click', function() {
-            generateQRCode(contactInfo);
-            setActiveButton(this);
-            qrDescription.textContent = 'Scan to save my contact information to your phone';
-        });
+        const contactQRBtn = document.getElementById('contactQR');
+        const portfolioQRBtn = document.getElementById('portfolioQR');
+        const resumeQRBtn = document.getElementById('resumeQR');
         
-        document.getElementById('websiteQR').addEventListener('click', function() {
-            generateQRCode(portfolioUrl);
-            setActiveButton(this);
-            qrDescription.textContent = 'Scan to visit my portfolio website';
-        });
+        if (contactQRBtn) {
+            contactQRBtn.addEventListener('click', function() {
+                generateQRCode(contactInfo);
+                setActiveButton(this);
+                qrDescription.textContent = 'Scan to save my contact information to your phone';
+            });
+        }
         
-        document.getElementById('resumeQR').addEventListener('click', function() {
-            generateQRCode(resumeUrl);
-            setActiveButton(this);
-            qrDescription.textContent = 'Scan to view my professional resume';
-        });
+        if (portfolioQRBtn) {
+            portfolioQRBtn.addEventListener('click', function() {
+                generateQRCode(portfolioUrl);
+                setActiveButton(this);
+                qrDescription.textContent = 'Scan to visit my portfolio website';
+            });
+        }
+        
+        if (resumeQRBtn) {
+            resumeQRBtn.addEventListener('click', function() {
+                generateQRCode(resumeUrl);
+                setActiveButton(this);
+                qrDescription.textContent = 'Scan to view my professional resume';
+            });
+        }
         
         // Set active button
         function setActiveButton(button) {
@@ -285,6 +308,7 @@ END:VCARD`;
         }
     });
 </script>
+
     
     <!-- Add this CSS to your styles.css file -->
     <style>

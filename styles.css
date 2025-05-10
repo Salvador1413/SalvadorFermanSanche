@@ -11,6 +11,8 @@
     --light-slate: rgba(148, 163, 184, 0.3);
     --white-trans: rgba(255, 255, 255, 0.1);
     --blue-glow: 0 0 15px rgba(166, 227, 233, 0.5);
+    --accent-color: var(--secondary);
+
     
     /* Functional color assignments */
     --primary: var(--ice-blue);
@@ -1047,7 +1049,7 @@ textarea.form-control {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: var(--accent-color);
+    background-color: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1063,7 +1065,7 @@ textarea.form-control {
 
 .chatbot-bubble i {
     font-size: 28px;
-    color: white;
+    color: var(--navy-blue);
 }
 
 .chatbot-panel {
@@ -1072,7 +1074,7 @@ textarea.form-control {
     right: 0;
     width: 350px;
     height: 500px;
-    background-color: #1a1a1a;
+    background-color: var(--dark-navy);
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     display: flex;
@@ -1081,6 +1083,7 @@ textarea.form-control {
     transform: scale(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
+    border: 1px solid var(--primary);
 }
 
 .chatbot-panel.active {
@@ -1089,8 +1092,8 @@ textarea.form-control {
 
 .chatbot-header {
     padding: 15px 20px;
-    background-color: var(--accent-color);
-    color: white;
+    background-color: var(--primary);
+    color: var(--navy-blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1100,12 +1103,13 @@ textarea.form-control {
     margin: 0;
     font-size: 18px;
     font-weight: 600;
+    color: var(--navy-blue);
 }
 
 .chatbot-header button {
     background: none;
     border: none;
-    color: white;
+    color: var(--navy-blue);
     cursor: pointer;
     font-size: 18px;
 }
@@ -1141,14 +1145,14 @@ textarea.form-control {
 }
 
 .bot-message .message-content {
-    background-color: #2a2a2a;
-    color: #f0f0f0;
+    background-color: var(--slate-gray);
+    color: var(--text);
     border-bottom-left-radius: 4px;
 }
 
 .user-message .message-content {
-    background-color: var(--accent-color);
-    color: white;
+    background-color: var(--primary);
+    color: var(--navy-blue);
     border-bottom-right-radius: 4px;
 }
 
@@ -1156,31 +1160,31 @@ textarea.form-control {
     padding: 15px;
     display: flex;
     gap: 10px;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--slate-gray);
 }
 
 .chatbot-input input {
     flex: 1;
     padding: 12px 15px;
     border-radius: 20px;
-    border: 1px solid #444;
-    background-color: #2a2a2a;
-    color: white;
+    border: 1px solid var(--slate-gray);
+    background-color: var(--navy-blue);
+    color: var(--text);
     font-size: 14px;
 }
 
 .chatbot-input input:focus {
     outline: none;
-    border-color: var(--accent-color);
+    border-color: var(--primary);
 }
 
 .chatbot-input button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--accent-color);
+    background-color: var(--primary);
     border: none;
-    color: white;
+    color: var(--navy-blue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1189,7 +1193,7 @@ textarea.form-control {
 }
 
 .chatbot-input button:hover {
-    background-color: #0056b3;
+    background-color: var(--highlight);
 }
 
 .chatbot-input button i {
@@ -1202,11 +1206,11 @@ textarea.form-control {
 }
 
 .chatbot-messages::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: var(--navy-blue);
 }
 
 .chatbot-messages::-webkit-scrollbar-thumb {
-    background-color: #444;
+    background-color: var(--slate-gray);
     border-radius: 6px;
 }
 /* Updated Hero Section Styles */
@@ -1466,4 +1470,155 @@ textarea.form-control {
 #qrcode img {
     max-width: 100%;
     height: auto;
+}
+
+/* Contact page specific styles */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+}
+
+.contact-info-card, .contact-form-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--white-trans);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    height: 100%;
+}
+
+.contact-info-section {
+    margin: 30px 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.info-icon {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.info-content h4 {
+    margin-bottom: 5px;
+    color: var(--highlight);
+    font-size: 1rem;
+}
+
+.info-content p {
+    margin-bottom: 0;
+}
+/* Add these styles to your CSS file */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-info-card, .contact-form-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--white-trans);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    height: 100%;
+}
+
+.contact-info-section {
+    margin-bottom: 30px;
+}
+
+.info-icon {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(166, 227, 233, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info-card {
+        margin-bottom: 30px;
+    }
+}
+
+/* QR Code styles */
+.qr-code-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--white-trans);
+    text-align: center;
+}
+
+.qr-code-section h3 {
+    margin-bottom: 10px;
+    color: var(--highlight);
+}
+
+.qr-code-section p {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.qr-code-container {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.qr-code-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.qr-btn {
+    background: var(--slate-gray);
+    color: var(--text);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.qr-btn:hover {
+    background: var(--light-slate);
+}
+
+.qr-btn.active {
+    background: var(--primary);
+    color: var(--navy-blue);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info-card {
+        margin-bottom: 30px;
+    }
 }

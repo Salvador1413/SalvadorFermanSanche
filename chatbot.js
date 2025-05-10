@@ -1,52 +1,21 @@
+// Chatbot functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Create and append the chatbot HTML
-    const chatbotHTML = `
-        <div class="chatbot-container" id="chatbotContainer">
-            <div class="chatbot-header">
-                <div class="chatbot-logo">SFS</div>
-                <h3>Chat with Salvador</h3>
-                <button class="chatbot-toggle" id="chatbotToggle">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chatbot-body" id="chatbotBody">
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message bot-message">
-                        <p>Hello! I'm Salvador's virtual assistant. How can I help you learn more about my cybersecurity skills and experience?</p>
-                    </div>
-                </div>
-                <div class="chat-input">
-                    <input type="text" id="userInput" placeholder="Type your message...">
-                    <button id="sendMessage">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <button class="chatbot-toggle-btn" id="chatbotToggleBtn">
-            <i class="fas fa-comments"></i>
-        </button>
-    `;
+    const chatbotBubble = document.getElementById('chatbot-bubble');
+    const chatbotPanel = document.getElementById('chatbot-panel');
+    const closeButton = document.getElementById('close-chatbot');
+    const sendButton = document.getElementById('send-message');
+    const userInput = document.getElementById('user-input');
+    const messagesContainer = document.getElementById('chatbot-messages');
     
-    document.body.insertAdjacentHTML('beforeend', chatbotHTML);
-    
-    // Get DOM elements
-    const chatbotContainer = document.getElementById('chatbotContainer');
-    const chatbotToggleBtn = document.getElementById('chatbotToggleBtn');
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatMessages = document.getElementById('chatMessages');
-    const userInput = document.getElementById('userInput');
-    const sendMessageBtn = document.getElementById('sendMessage');
-    
-    // Toggle chatbot visibility
-    chatbotToggleBtn.addEventListener('click', function() {
-        chatbotContainer.classList.add('active');
-        chatbotToggleBtn.style.display = 'none';
+    // Toggle chatbot panel
+    chatbotBubble.addEventListener('click', function() {
+        console.log('Chatbot bubble clicked');
+        chatbotPanel.classList.toggle('active');
     });
     
-    chatbotToggle.addEventListener('click', function() {
-        chatbotContainer.classList.remove('active');
-        chatbotToggleBtn.style.display = 'flex';
+    // Close chatbot panel
+    closeButton.addEventListener('click', function() {
+        chatbotPanel.classList.remove('active');
     });
     
     // Send message function
@@ -57,35 +26,55 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add user message to chat
         addMessage(message, 'user');
         
-        // Clear input
+        // Clear input field
         userInput.value = '';
         
-        // Simulate bot response
+        // Get bot response
+        const botResponse = getBotResponse(message);
+        
+        // Simulate bot response (with typing indicator)
         setTimeout(() => {
-            const botResponse = getBotResponse(message);
             addMessage(botResponse, 'bot');
-        }, 500);
+        }, 1000);
     }
+    
+    // Send message on button click
+    sendButton.addEventListener('click', sendMessage);
+    
+    // Send message on Enter key
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
     
     // Add message to chat
-    function addMessage(text, sender) {
+    function addMessage(message, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', `${sender}-message`);
-        messageDiv.innerHTML = `<p>${text}</p>`;
-        chatMessages.appendChild(messageDiv);
+        
+        const messageContent = document.createElement('div');
+        messageContent.classList.add('message-content');
+        
+        const messageParagraph = document.createElement('p');
+        messageParagraph.textContent = message;
+        
+        messageContent.appendChild(messageParagraph);
+        messageDiv.appendChild(messageContent);
+        messagesContainer.appendChild(messageDiv);
         
         // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
     
-    // Enhanced bot responses tailored to Salvador's background
+    // Get bot response based on user input
     function getBotResponse(message) {
         const lowerMessage = message.toLowerCase();
         
         // Greetings
         if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
             return "Hello! I'm Salvador's virtual assistant. You can ask me about his cybersecurity skills, education, experience, or how to contact him.";
-        } 
+        }
         
         // About Salvador
         else if (lowerMessage.includes('who are you') || lowerMessage.includes('tell me about yourself') || lowerMessage.includes('about you')) {
@@ -94,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Cybersecurity Skills
         else if ((lowerMessage.includes('cybersecurity') || lowerMessage.includes('security')) && 
-                 (lowerMessage.includes('skill') || lowerMessage.includes('know'))) {
+                (lowerMessage.includes('skill') || lowerMessage.includes('know'))) {
             return "I have experience with cybersecurity tools like Wireshark and Nmap. I understand network fundamentals including TCP/IP protocols, router configuration, and modem setup. I'm also knowledgeable about various malware types, phishing techniques, and system vulnerabilities.";
         }
         
@@ -106,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Skills - General
         else if (lowerMessage.includes('skill') || lowerMessage.includes('experience') || lowerMessage.includes('what can you do')) {
             return "My skills include: 1) Cybersecurity tools like Wireshark and Nmap, 2) Network fundamentals including TCP/IP protocols, 3) Basic Linux & Windows operations, 4) Security awareness including malware identification and phishing detection, and 5) Bilingual communication in English and Spanish.";
-        } 
+        }
         
         // Education
         else if (lowerMessage.includes('education') || lowerMessage.includes('school') || lowerMessage.includes('university') || lowerMessage.includes('degree')) {
@@ -156,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Contact
         else if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('phone') || lowerMessage.includes('reach')) {
             return "You can reach Salvador at Salvador.fermansanchez@gmail.com or by phone at 301-328-7537 or 240-463-1062. He's also on LinkedIn and would be happy to connect professionally.";
-        } 
+        }
         
         // LinkedIn
         else if (lowerMessage.includes('linkedin') || lowerMessage.includes('social media')) {
@@ -183,13 +172,4 @@ document.addEventListener('DOMContentLoaded', function() {
             return "I'm not sure I understand. You can ask about Salvador's cybersecurity skills, education, work experience, or contact information. How can I help you learn more about his qualifications?";
         }
     }
-    
-    // Event listeners for sending messages
-    sendMessageBtn.addEventListener('click', sendMessage);
-    
-    userInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
 });
